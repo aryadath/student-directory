@@ -25,11 +25,13 @@ def print_header
     puts "-------------"
 end
 
-# print the students by iteration
-def print(students)
-    students.each.with_index(1) do |student, index|
+# adjusted to print those with a aspecific letter
+def print_students_starting_with(students, letter)
+  students.each.with_index(1) do |student, index|
+    if student[:name].downcase.start_with?(letter.downcase)
       puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
     end
+  end
 end
 
 
@@ -40,5 +42,5 @@ end
 # call methods
 students = input_students
 print_header
-print(students)
+print_students_starting_with(students, 'b')
 print_footer(students)
