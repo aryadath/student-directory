@@ -25,15 +25,14 @@ def print_header
     puts "-------------"
 end
 
-# adjusted to print those with a aspecific letter
-def print_students_starting_with(students, letter)
+# adjusted to print those less than 12
+def print_students_with_short_name(students)
   students.each.with_index(1) do |student, index|
-    if student[:name].downcase.start_with?(letter.downcase)
+    if student[:name].length < 12
       puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
 end
-
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
@@ -42,5 +41,5 @@ end
 # call methods
 students = input_students
 print_header
-print_students_starting_with(students, 'b')
+print_students_with_short_name(students)
 print_footer(students)
