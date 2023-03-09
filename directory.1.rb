@@ -27,12 +27,16 @@ end
 
 # adjusted to print those less than 12
 def print_students_with_short_name(students)
-  students.each.with_index(1) do |student, index|
+  index = 0
+  while index < students.length
+    student = students[index]
     if student[:name].length < 12
-      puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+      puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
     end
+    index += 1
   end
 end
+
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
